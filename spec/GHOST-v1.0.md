@@ -4,13 +4,13 @@
 
 ---
 
-**Status:** Draft (unpublished)
+**Status:** Draft (published for review)
 **Version:** 1.0
 **Drafted:** 2026-08-26
 **Authors:** FlowState (hello@d7r.io)
-**Repository:** intended https://github.com/d7r-LLC/ghost-spec (not yet created)
+**Repository:** https://github.com/d7r-LLC/ghost-spec
 **Schema URL:** intended https://ghost-spec.dev/schema/v1 (not yet provisioned)
-**License:** not yet decided (author decision pending)
+**License:** CC BY 4.0
 
 ---
 
@@ -212,4 +212,4 @@ This specification versions by conformance, not text: a change that alters what 
 
 ---
 
-*Draft note: this v1.0 draft was produced from the operating advisory-council framework and the 2026-08-26 alignment rulings. Endorsement mechanics (section 8, item 2) and the schema directory are deliberately thin pending the platform's verified-skills pipeline. Open author decisions the draft does not settle: the unit noun (this draft uses counselor, with projection for the non-living class, as a recommendation, not a ruling), the license, publication and repository creation, and adoption into the agent stack (the sibling specs still describe a three-spec stack until the author accepts GHOST into it). Conformance claims against this draft are premature until the author reviews and the schemas exist.*
+*Draft note: this v1.0 draft was produced from the operating advisory-council framework and the 2026-08-26 alignment rulings. Endorsement mechanics (section 8, item 2) and the schema directory are deliberately thin pending the platform's verified-skills pipeline. Open author decisions the draft does not settle: the unit noun (this draft uses counselor, with projection for the non-living class, as a recommendation, not a ruling), and adoption into the agent stack (the sibling specs still describe a three-spec stack until the author accepts GHOST into it). The license (CC BY 4.0), publication, and repository creation were settled on 2026-08-28. Conformance claims against this draft are premature until the author reviews and the schemas exist.*

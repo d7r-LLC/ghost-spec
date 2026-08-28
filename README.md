@@ -4,7 +4,7 @@
 
 An open specification for advisor projections: how a person's published thinking becomes a governed counselor, what a projection may never claim, how counsel is bounded, how a living person publishes a certified official counselor, and what governs projections of the non-living.
 
-**Status: Draft.** Nothing here is adopted until the author accepts it. This repository has not been published, and no license decision has been made; the spec header carries the pending marker.
+**Status: Draft, published for review.** Nothing here is adopted until the author accepts it. Conformance claims are premature until the schemas exist. Published at [ghost-spec.dev](https://ghost-spec.dev) under CC BY 4.0.
 
 ## The stack
 
@@ -24,6 +24,7 @@ ABR Right X (Fair Representation) is GHOST's certification backbone. SAGA's sign
 
 - `spec/GHOST-v1.0.md`: the specification draft
 - `schema/v1/`: JSON Schemas (not yet written)
+- `site/`: source for [ghost-spec.dev](https://ghost-spec.dev), built by `npm run build`
 - `docs/`, `rfcs/`: reserved
 
 ## The one-sentence thesis
