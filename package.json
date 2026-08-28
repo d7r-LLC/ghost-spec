@@ -1,0 +1,13 @@
+{
+  "name": "ghost-spec-site",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Static site build for ghost-spec.dev",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-site.mjs"
+  },
+  "dependencies": {
+    "marked": "14.1.4"
+  }
+}

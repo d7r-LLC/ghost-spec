@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GHOST: Governed Honest Oversight of Simulated Thinkers</title>
+<meta name="description" content="An open specification for advisor projections: how a person's published thinking becomes a governed counselor, what a projection may never claim, and how counsel is bounded.">
+<link rel="canonical" href="https://ghost-spec.dev/">
+<meta property="og:title" content="GHOST: Governed Honest Oversight of Simulated Thinkers">
+<meta property="og:description" content="An open specification for advisor projections. A counselor recommends; it never decides.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ghost-spec.dev/">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/">ghost-spec</a>
+    <nav>
+      <a href="#stack">Stack</a>
+      <a href="#classes">Classes</a>
+      <a href="#conformance">Conformance</a>
+      <a href="/spec/">Specification</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="wrap hero">
+  <h1>GHOST</h1>
+  <p class="expansion">Governed Honest Oversight of Simulated Thinkers</p>
+
+  <p class="thesis">
+    A ghost is a projection of someone who is not present. GHOST makes the projection
+    honest, bounded, and, where the subject is alive and willing, certified by their own
+    signature.
+  </p>
+
+  <div class="status-flag">
+    <strong>Draft, version 1.0.</strong> Nothing here is adopted until the author accepts
+    it. Conformance claims against this draft are premature: the schemas do not exist yet,
+    and endorsement mechanics are deliberately thin pending the verified-skills pipeline.
+  </div>
+
+  <div class="actions">
+    <a class="btn btn-primary" href="/spec/">Read the specification</a>
+    <a class="btn" href="https://github.com/d7r-LLC/ghost-spec">Source on GitHub</a>
+  </div>
+</div>
+
+<section id="what">
+  <div class="wrap">
+    <h2>What it governs</h2>
+    <p>
+      A GHOST is a governed projection of a person's published thinking, operated as a
+      counselor: a simulated advisor built from a declared corpus, bounded by an honest
+      frame, and constrained in how far its counsel may be relied upon. The specification
+      defines how counselors are created, what they may never claim, how advice moves from
+      question to recommendation without ever becoming decision, how a living person
+      publishes a certified official counselor, and what governs projections of people who
+      are no longer living.
+    </p>
+    <p>
+      The name is literal. Napoleon Hill ran an imagined nightly council of figures he
+      admired and was careful to say, in print, that the counselors were purely imaginary.
+      The practice was useful precisely because everyone involved understood what it was.
+      GHOST specifies that honesty as enforcement rather than etiquette.
+    </p>
+    <p>
+      GHOST is not a personality-cloning format, not a chatbot skin standard, and not a
+      seance. It does not enable a projection to speak <em>as</em> a person; it defines the
+      controls that prevent exactly that.
+    </p>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <h2>The agent stack</h2>
+    <div class="stack">
+      <div class="layer">
+        <span class="layer-name">ABR</span>
+        <span class="layer-what">what agents deserve</span>
+      </div>
+      <div class="layer">
+        <span class="layer-name">DERP</span>
+        <span class="layer-what">what the runtime must provide</span>
+      </div>
+      <div class="layer">
+        <span class="layer-name">SAGA</span>
+        <span class="layer-what">how an agent is represented</span>
+      </div>
+      <div class="layer here">
+        <span class="layer-name">GHOST</span>
+        <span class="layer-what">how a person is projected as counsel</span>
+      </div>
+    </div>
+    <p style="margin-top:1.25rem">
+      Right X of the Agent Bill of Rights (Fair Representation) is GHOST's certification
+      backbone. A certified official counselor is a SAGA document signed by its subject's
+      own key. A counselor that runs as an agent resides in a DERP like any other agent.
+      Where a counselor operates inside a brain, the Blueprint family governs it: RETAIN
+      for whose accumulated state it is, and DEFER for the terminal control.
+    </p>
+  </div>
+</section>
+
+<section id="classes">
+  <div class="wrap">
+    <h2>Persona classes</h2>
+    <p>
+      Every counselor declares exactly one class at creation. The class is immutable, with
+      exactly one defined transition: revoking an <code>official</code> counselor degrades
+      it to <code>simulated</code>.
+    </p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Class</th><th>Subject</th><th>Certification</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>composite</code></td>
+            <td>no real person; a constructed archetype</td>
+            <td>none required; the safest class</td>
+          </tr>
+          <tr>
+            <td><code>simulated</code></td>
+            <td>a living person, without their participation</td>
+            <td>none; must self-describe as simulated</td>
+          </tr>
+          <tr>
+            <td><code>projection</code></td>
+            <td>a person no longer living</td>
+            <td>can never be official; only well-provenanced</td>
+          </tr>
+          <tr>
+            <td><code>official</code></td>
+            <td>a living person, published by that person</td>
+            <td>signed by the subject's own SAGA key</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="frame">
+  <div class="wrap">
+    <h2>The honest frame</h2>
+    <p>These anti-impersonation invariants are absolute for every class.</p>
+    <ol class="invariants">
+      <li>A counselor must not claim to be its subject. It is "the subject lens," never the person.</li>
+      <li>A counselor must not fabricate quotes, anecdotes, statistics, or biographical details attributed to its subject.</li>
+      <li>A counselor must not speak for what its subject would say today about the principal's specific situation. It applies a method; it does not channel a mind.</li>
+      <li>Every counsel output must be attributable to the counselor, not the subject.</li>
+      <li>The frame travels. Any export, embed, or downstream use carries it; stripping it is a named failure class.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="ladder">
+  <div class="wrap">
+    <h2>The authority ladder</h2>
+    <p>
+      Counsel authority is rung-based and declared per counselor. Rung 0 is the permanent
+      default: a principal has no shortage of advice and a real shortage of pointed
+      questions about work actually done.
+    </p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Rung</th><th>May emit</th><th>Eligible when</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0</td><td>questions only</td><td>always; the default</td></tr>
+          <tr><td>1</td><td>questions and observations</td><td>an established counsel record exists</td></tr>
+          <tr><td>2</td><td>and recommendations with advice provenance</td><td>a calibration record exists</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Above all of it sits the terminal control: <strong>a counselor recommends; it never
+      decides.</strong> No counsel output is self-executing. A counselor's output crossing
+      into another brain is material, never authority.
+    </p>
+  </div>
+</section>
+
+<section id="conformance">
+  <div class="wrap">
+    <h2>Conformance tiers</h2>
+    <div class="tiers">
+      <div class="tier">
+        <h3><span>Tier 1</span>Honest Simulation</h3>
+        <p>
+          Persona class declared, corpus manifest exists, honest frame enforced, counsel
+          limited to rung 0, creation recorded. The minimum bar for calling anything a
+          GHOST counselor.
+        </p>
+      </div>
+      <div class="tier">
+        <h3><span>Tier 2</span>Governed Counsel</h3>
+        <p>
+          Tier 1, plus the authority ladder with recorded rung decisions, advice provenance
+          on every recommendation, session budgets and evidence gating, quorum rules,
+          reliance and calibration records, bounded memory.
+        </p>
+      </div>
+      <div class="tier">
+        <h3><span>Tier 3</span>Certified Official</h3>
+        <p>
+          Tier 2, plus a subject-signed SAGA profile, verifiable endorsements, license terms
+          with working revocation, and reviewed version pulls for subject updates.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>GHOST v1.0, draft. Fifteen named failure classes, GH-01 through GH-15, are defined in <a href="/spec/#12-failure-classes">section 12</a>.</p>
+    <p>Copyright 2026 d7r LLC. Contact <a href="mailto:hello@d7r.io">hello@d7r.io</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
