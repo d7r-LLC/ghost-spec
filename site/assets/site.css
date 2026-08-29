@@ -1,0 +1,36 @@
+/* ghost-spec.dev — site-local components on top of d7r-os.css */
+
+.invariants { margin: 1.2rem 0 0 1.4rem; max-width: 46rem; }
+.invariants li { margin: 0.55rem 0; color: var(--ink-soft); }
+.invariants li::marker { font-family: var(--mono); color: var(--accent); font-weight: 700; }
+
+.tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+.tier {
+  padding: 1.25rem 1.3rem;
+  background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-line); border-radius: var(--radius-lg);
+  box-shadow: var(--card-glow); background-image: var(--glass-shine);
+}
+.tier h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.tier h3 span {
+  display: block; font-family: var(--mono); font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); margin-bottom: 0.3rem;
+}
+.tier p { font-size: 0.92rem; color: var(--ink-soft); }
+
+/* Rendered spec page: inline contents + status metadata block */
+.prose .meta {
+  padding: 0.9rem 1.1rem; margin: 1.2rem 0;
+  background: var(--glass); border: 1px solid var(--glass-line);
+  border-left: 3px solid var(--accent); border-radius: 10px; font-size: 0.92rem;
+}
+.prose .meta p { margin: 0; }
+.prose .toc {
+  padding: 1.1rem 1.3rem; margin: 1.4rem 0 2rem;
+  background: var(--glass); border: 1px solid var(--glass-line);
+  border-radius: var(--radius-lg); box-shadow: var(--card-glow);
+}
+.prose .toc h2 { border: 0; padding: 0; margin: 0 0 0.5rem; font-size: 1.05rem; }
+.prose .toc ol { margin: 0 0 0 1.3rem; columns: 2; column-gap: 2.2rem; }
+.prose .toc li { margin: 0.18rem 0; break-inside: avoid; }
+@media (max-width: 640px) { .prose .toc ol { columns: 1; } }

@@ -41,37 +41,71 @@ renderer.heading = function ({ tokens, depth }) {
 };
 
 const page = ({ title, description, body }) => `<!doctype html>
-<html lang="en">
+<html lang="en" data-accent="ghost">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(description)}">
 <link rel="canonical" href="https://ghost-spec.dev/spec/">
-<link rel="stylesheet" href="/assets/style.css">
+<script>
+  (function () {
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('d7r-theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/assets/d7r-os.css">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
+<div class="aurora" aria-hidden="true"></div>
+
 <header class="masthead">
-  <div class="wrap">
-    <a class="brand" href="/">ghost-spec</a>
-    <nav>
+  <div class="masthead-inner">
+    <a class="logo" href="/" aria-label="ghost-spec.dev home"><span class="em">~/</span>ghost-spec<span class="em">.dev</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav aria-label="Primary">
       <a href="/">Overview</a>
       <a href="https://github.com/d7r-LLC/ghost-spec/blob/main/spec/GHOST-v1.0.md">Markdown source</a>
-      <a href="https://github.com/d7r-LLC/ghost-spec">GitHub</a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/d7r-LLC/ghost-spec">GitHub</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
     </nav>
   </div>
 </header>
 
-<main class="wrap doc">
+<main class="page-single prose">
 ${body}
 </main>
 
-<footer>
-  <div class="wrap">
-    <p>Copyright 2026 d7r LLC. Contact <a href="mailto:hello@d7r.io">hello@d7r.io</a>.</p>
+<footer class="colophon">
+  <div class="wrap cols">
+    <div><p>GHOST v1.0, draft &middot; CC BY 4.0 &middot; part of <a href="https://d7r.io">d7r Open Source</a>.</p></div>
+    <div><p><a href="https://github.com/d7r-LLC/ghost-spec">GitHub</a> &middot; <a href="mailto:hello@d7r.io">hello@d7r.io</a></p></div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var t = document.getElementById('theme-toggle');
+  if (t) t.addEventListener('click', function () {
+    var root = document.documentElement;
+    var cur = root.getAttribute('data-theme');
+    if (!cur) cur = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('d7r-theme', next); } catch (e) {}
+  });
+})();
+</script>
 
 </body>
 </html>

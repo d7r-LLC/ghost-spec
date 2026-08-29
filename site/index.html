@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-accent="ghost">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,49 +10,80 @@
 <meta property="og:description" content="An open specification for advisor projections. A counselor recommends; it never decides.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ghost-spec.dev/">
-<link rel="stylesheet" href="/assets/style.css">
+<script>
+  (function () {
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('d7r-theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/assets/d7r-os.css">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
+<div class="aurora" aria-hidden="true"></div>
+
 <header class="masthead">
-  <div class="wrap">
-    <a class="brand" href="/">ghost-spec</a>
-    <nav>
+  <div class="masthead-inner">
+    <a class="logo" href="/" aria-label="ghost-spec.dev home"><span class="em">~/</span>ghost-spec<span class="em">.dev</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav aria-label="Primary">
       <a href="#stack">Stack</a>
       <a href="#classes">Classes</a>
       <a href="#conformance">Conformance</a>
       <a href="/spec/">Specification</a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/d7r-LLC/ghost-spec">GitHub</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
     </nav>
   </div>
 </header>
 
 <main>
 
-<div class="wrap hero">
-  <h1>GHOST</h1>
-  <p class="expansion">Governed Honest Oversight of Simulated Thinkers</p>
+<section class="hero">
+  <div class="gridfield" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="eyebrow">counsel</p>
+    <h1>GHOST</h1>
+    <p class="expansion">Governed Honest Oversight of Simulated Thinkers</p>
 
-  <p class="thesis">
-    A ghost is a projection of someone who is not present. GHOST makes the projection
-    honest, bounded, and, where the subject is alive and willing, certified by their own
-    signature.
-  </p>
+    <p class="thesis">
+      A ghost is a projection of someone who is not present. GHOST makes the projection
+      honest, bounded, and, where the subject is alive and willing, certified by their own
+      signature.
+    </p>
 
-  <div class="status-flag">
-    <strong>Draft, version 1.0.</strong> Nothing here is adopted until the author accepts
-    it. Conformance claims against this draft are premature: the schemas do not exist yet,
-    and endorsement mechanics are deliberately thin pending the verified-skills pipeline.
+    <div class="status-flag reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+      <span><strong>Draft, version 1.0.</strong> Nothing here is adopted until the author accepts
+      it. Conformance claims against this draft are premature: the schemas do not exist yet,
+      and endorsement mechanics are deliberately thin pending the verified-skills pipeline.</span>
+    </div>
+
+    <div class="meta-chips"><span class="role">v1.0</span><span class="role">draft</span><span class="role">CC BY 4.0</span></div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="/spec/">read --spec</a>
+      <a class="btn btn-secondary" href="https://github.com/d7r-LLC/ghost-spec">Source on GitHub</a>
+    </div>
   </div>
-
-  <div class="actions">
-    <a class="btn btn-primary" href="/spec/">Read the specification</a>
-    <a class="btn" href="https://github.com/d7r-LLC/ghost-spec">Source on GitHub</a>
-  </div>
-</div>
+</section>
 
 <section id="what">
   <div class="wrap">
-    <h2>What it governs</h2>
+    <div class="section-head reveal">
+      <p class="eyebrow">scope</p>
+      <h2>What it governs</h2>
+    </div>
+    <div class="prose">
     <p>
       A GHOST is a governed projection of a person's published thinking, operated as a
       counselor: a simulated advisor built from a declared corpus, bounded by an honest
@@ -73,71 +104,82 @@
       seance. It does not enable a projection to speak <em>as</em> a person; it defines the
       controls that prevent exactly that.
     </p>
+    </div>
   </div>
 </section>
 
 <section id="stack">
   <div class="wrap">
-    <h2>The agent stack</h2>
-    <div class="stack">
-      <div class="layer">
-        <span class="layer-name">ABR</span>
-        <span class="layer-what">what agents deserve</span>
-      </div>
-      <div class="layer">
-        <span class="layer-name">DERP</span>
-        <span class="layer-what">what the runtime must provide</span>
-      </div>
-      <div class="layer">
-        <span class="layer-name">SAGA</span>
-        <span class="layer-what">how an agent is represented</span>
-      </div>
-      <div class="layer here">
-        <span class="layer-name">GHOST</span>
-        <span class="layer-what">how a person is projected as counsel</span>
+    <div class="section-head reveal">
+      <p class="eyebrow">stack</p>
+      <h2>The agent stack</h2>
+    </div>
+    <div class="family reveal" style="max-width:36rem">
+      <div class="stack">
+        <div class="layer">
+          <span class="layer-name">ABR</span>
+          <span class="layer-what">what agents deserve</span>
+        </div>
+        <div class="layer">
+          <span class="layer-name">DERP</span>
+          <span class="layer-what">what the runtime must provide</span>
+        </div>
+        <div class="layer">
+          <span class="layer-name">SAGA</span>
+          <span class="layer-what">how an agent is represented</span>
+        </div>
+        <div class="layer here">
+          <span class="layer-name">GHOST</span>
+          <span class="layer-what">how a person is projected as counsel</span>
+        </div>
       </div>
     </div>
-    <p style="margin-top:1.25rem">
+    <div class="prose" style="margin-top:1.25rem">
+    <p>
       Right X of the Agent Bill of Rights (Fair Representation) is GHOST's certification
       backbone. A certified official counselor is a SAGA document signed by its subject's
       own key. A counselor that runs as an agent resides in a DERP like any other agent.
       Where a counselor operates inside a brain, the Blueprint family governs it: RETAIN
       for whose accumulated state it is, and DEFER for the terminal control.
     </p>
+    </div>
   </div>
 </section>
 
 <section id="classes">
   <div class="wrap">
-    <h2>Persona classes</h2>
-    <p>
-      Every counselor declares exactly one class at creation. The class is immutable, with
-      exactly one defined transition: revoking an <code>official</code> counselor degrades
-      it to <code>simulated</code>.
-    </p>
+    <div class="section-head reveal">
+      <p class="eyebrow">classes</p>
+      <h2>Persona classes</h2>
+      <p class="lede">
+        Every counselor declares exactly one class at creation. The class is immutable, with
+        exactly one defined transition: revoking an <code style="font-family:var(--mono);font-size:0.85em">official</code> counselor degrades
+        it to <code style="font-family:var(--mono);font-size:0.85em">simulated</code>.
+      </p>
+    </div>
     <div class="table-scroll">
-      <table>
+      <table class="d7r">
         <thead>
           <tr><th>Class</th><th>Subject</th><th>Certification</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td><code>composite</code></td>
+            <td><code style="font-family:var(--mono)">composite</code></td>
             <td>no real person; a constructed archetype</td>
             <td>none required; the safest class</td>
           </tr>
           <tr>
-            <td><code>simulated</code></td>
+            <td><code style="font-family:var(--mono)">simulated</code></td>
             <td>a living person, without their participation</td>
             <td>none; must self-describe as simulated</td>
           </tr>
           <tr>
-            <td><code>projection</code></td>
+            <td><code style="font-family:var(--mono)">projection</code></td>
             <td>a person no longer living</td>
             <td>can never be official; only well-provenanced</td>
           </tr>
           <tr>
-            <td><code>official</code></td>
+            <td><code style="font-family:var(--mono)">official</code></td>
             <td>a living person, published by that person</td>
             <td>signed by the subject's own SAGA key</td>
           </tr>
@@ -149,8 +191,11 @@
 
 <section id="frame">
   <div class="wrap">
-    <h2>The honest frame</h2>
-    <p>These anti-impersonation invariants are absolute for every class.</p>
+    <div class="section-head reveal">
+      <p class="eyebrow">frame</p>
+      <h2>The honest frame</h2>
+      <p class="lede">These anti-impersonation invariants are absolute for every class.</p>
+    </div>
     <ol class="invariants">
       <li>A counselor must not claim to be its subject. It is "the subject lens," never the person.</li>
       <li>A counselor must not fabricate quotes, anecdotes, statistics, or biographical details attributed to its subject.</li>
@@ -163,14 +208,17 @@
 
 <section id="ladder">
   <div class="wrap">
-    <h2>The authority ladder</h2>
-    <p>
-      Counsel authority is rung-based and declared per counselor. Rung 0 is the permanent
-      default: a principal has no shortage of advice and a real shortage of pointed
-      questions about work actually done.
-    </p>
+    <div class="section-head reveal">
+      <p class="eyebrow">authority</p>
+      <h2>The authority ladder</h2>
+      <p class="lede">
+        Counsel authority is rung-based and declared per counselor. Rung 0 is the permanent
+        default: a principal has no shortage of advice and a real shortage of pointed
+        questions about work actually done.
+      </p>
+    </div>
     <div class="table-scroll">
-      <table>
+      <table class="d7r">
         <thead>
           <tr><th>Rung</th><th>May emit</th><th>Eligible when</th></tr>
         </thead>
@@ -181,19 +229,24 @@
         </tbody>
       </table>
     </div>
+    <div class="prose" style="margin-top:1rem">
     <p>
       Above all of it sits the terminal control: <strong>a counselor recommends; it never
       decides.</strong> No counsel output is self-executing. A counselor's output crossing
       into another brain is material, never authority.
     </p>
+    </div>
   </div>
 </section>
 
 <section id="conformance">
   <div class="wrap">
-    <h2>Conformance tiers</h2>
+    <div class="section-head reveal">
+      <p class="eyebrow">conformance</p>
+      <h2>Conformance tiers</h2>
+    </div>
     <div class="tiers">
-      <div class="tier">
+      <div class="tier reveal">
         <h3><span>Tier 1</span>Honest Simulation</h3>
         <p>
           Persona class declared, corpus manifest exists, honest frame enforced, counsel
@@ -201,7 +254,7 @@
           GHOST counselor.
         </p>
       </div>
-      <div class="tier">
+      <div class="tier reveal">
         <h3><span>Tier 2</span>Governed Counsel</h3>
         <p>
           Tier 1, plus the authority ladder with recorded rung decisions, advice provenance
@@ -209,7 +262,7 @@
           reliance and calibration records, bounded memory.
         </p>
       </div>
-      <div class="tier">
+      <div class="tier reveal">
         <h3><span>Tier 3</span>Certified Official</h3>
         <p>
           Tier 2, plus a subject-signed SAGA profile, verifiable endorsements, license terms
@@ -222,12 +275,38 @@
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <p>GHOST v1.0, draft. Fifteen named failure classes, GH-01 through GH-15, are defined in <a href="/spec/#12-failure-classes">section 12</a>.</p>
-    <p>Copyright 2026 d7r LLC. Contact <a href="mailto:hello@d7r.io">hello@d7r.io</a>.</p>
+<footer class="colophon">
+  <div class="wrap cols">
+    <div>
+      <p>GHOST v1.0, draft &middot; CC BY 4.0 &middot; part of <a href="https://d7r.io">d7r Open Source</a>.</p>
+      <p>Fifteen named failure classes, GH-01 through GH-15, are defined in <a href="/spec/#12-failure-classes">section 12</a>.</p>
+    </div>
+    <div>
+      <p><a href="https://github.com/d7r-LLC/ghost-spec">GitHub</a> &middot; <a href="mailto:hello@d7r.io">hello@d7r.io</a></p>
+    </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    var root = document.documentElement;
+    var cur = root.getAttribute('data-theme');
+    if (!cur) cur = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('d7r-theme', next); } catch (e) {}
+  });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
 
 </body>
 </html>
