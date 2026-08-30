@@ -1,0 +1,41 @@
+{
+  "name": "ghost-skills",
+  "version": "0.1.0",
+  "description": "Official agent skills for executing the GHOST protocol: the pipeline, counselor creation, and conformance",
+  "author": {
+    "name": "Spencer Thornock",
+    "email": "admin@epicdigital.media"
+  },
+  "homepage": "https://github.com/d7r-LLC/ghost-spec",
+  "repository": "https://github.com/d7r-LLC/ghost-spec",
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "ghost",
+    "skills",
+    "agent",
+    "counselor",
+    "spec",
+    "governance"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "GHOST Skills",
+    "shortDescription": "Execute the GHOST protocol with governed, spec-citing skills",
+    "longDescription": "Use GHOST Skills to run the protocol the specification defines: qualify a subject, build an evidenced corpus, draft counselor charters and manifests against the published schemas, run the section 14 self test, and keep conformance honest. Skills cite spec sections and never take operator-only acts.",
+    "developerName": "Spencer Thornock",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Qualify a subject for a GHOST counselor.",
+      "Draft a counselor charter and corpus manifest.",
+      "Report the GHOST health invariants."
+    ],
+    "websiteURL": "https://ghost-spec.dev",
+    "brandColor": "#10B981",
+    "screenshots": []
+  }
+}

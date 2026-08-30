@@ -6,6 +6,10 @@ on:
     paths:
       - 'site/**'
       - 'spec/**'
+      - 'docs/guide/**'
+      - 'schema/**'
+      - 'skills/**'
+      - 'conformance/**'
       - 'scripts/build-site.mjs'
       - 'package.json'
       - 'package-lock.json'

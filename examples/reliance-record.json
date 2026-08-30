@@ -1,0 +1,16 @@
+{
+  "ghostVersion": "1.0",
+  "date": "2026-08-30",
+  "counselorRef": "examples/charter.composite.json",
+  "counsel": {
+    "grade": "recommendation",
+    "text": "Illustrative rung 2 example: reorder before the fourteen-day floor is crossed.",
+    "provenance": [
+      { "kind": "derivation", "citation": "src-01, chapter on resupply floors: the method says reorder at the named floor" },
+      { "kind": "inference", "citation": "I infer from the method that the floor applies to the new depot as well" }
+    ]
+  },
+  "action": "The principal reordered on day twelve.",
+  "outcome": "No shortage occurred; overstock of one crate.",
+  "outcomeDate": "2026-09-15"
+}

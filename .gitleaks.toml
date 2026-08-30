@@ -1,0 +1,15 @@
+# Secrets gate configuration. Extends the default ruleset; the two custom rules
+# below are carried from the d7r estate (d7r-cto establishes them).
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "anthropic-api-key"
+description = "Anthropic API key"
+regex = '''sk-ant-[a-zA-Z0-9\-_]{36,}'''
+
+[[rules]]
+id = "bearer-jwt-token"
+description = "Bearer JWT in source"
+regex = '''[Bb]earer\s+eyJ[a-zA-Z0-9_\-]+\.[a-zA-Z0-9_\-]+\.[a-zA-Z0-9_\-]+'''

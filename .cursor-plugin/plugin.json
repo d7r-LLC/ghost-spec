@@ -1,0 +1,21 @@
+{
+  "name": "ghost-skills",
+  "displayName": "GHOST Skills",
+  "description": "Official agent skills for executing the GHOST protocol: the pipeline, counselor creation, and conformance",
+  "version": "0.1.0",
+  "author": {
+    "name": "Spencer Thornock",
+    "email": "admin@epicdigital.media"
+  },
+  "homepage": "https://github.com/d7r-LLC/ghost-spec",
+  "repository": "https://github.com/d7r-LLC/ghost-spec",
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "ghost",
+    "skills",
+    "agent",
+    "counselor"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks-cursor.json"
+}

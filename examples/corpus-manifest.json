@@ -1,0 +1,28 @@
+{
+  "ghostVersion": "1.0",
+  "subject": "The Quartermaster (composite; sources below are illustrative example data)",
+  "sources": [
+    {
+      "id": "src-01",
+      "title": "Field Notes on Provisioning (illustrative title)",
+      "type": "book",
+      "provenance": "archival",
+      "licenseBasis": "public domain",
+      "held": true,
+      "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "location": "corpus/field-notes-on-provisioning.txt"
+    },
+    {
+      "id": "src-02",
+      "title": "Depot Ledger Practice, 2nd ed. (illustrative title)",
+      "type": "book",
+      "provenance": "archival",
+      "licenseBasis": "purchased copy",
+      "held": false,
+      "url": "https://example.org/depot-ledger-practice"
+    }
+  ],
+  "exclusions": [
+    { "what": "Modern commentary on the manuals", "reason": "the lens applies the primary method, not its later interpreters" }
+  ]
+}

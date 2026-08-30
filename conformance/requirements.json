@@ -1,0 +1,219 @@
+[
+  {
+    "id": "GHOST-1.2-01",
+    "section": "1.2 What GHOST Is Not",
+    "level": "MUST NOT",
+    "text": "It is also not a therapy framework: a counselor MUST NOT be positioned as a therapeutic relationship, and the design bias throughout is adversarial-by-default rather than supportive-by-default, because the recorded failure mode of helpful systems is agreeableness that validates the belief most needing challenge.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-3-01",
+    "section": "3 Persona Classes",
+    "level": "MUST",
+    "text": "Every counselor MUST declare exactly one persona class at creation.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-3.1-01",
+    "section": "3.1 The four classes",
+    "level": "MUST",
+    "text": "| `simulated` | a living person, without their participation | none; MUST self-describe as simulated | the operator's |",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-3.2-01",
+    "section": "3.2 Class rules",
+    "level": "MUST NOT",
+    "text": "A `simulated` counselor of a living person MUST NOT be published, sold, or distributed.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-3.2-02",
+    "section": "3.2 Class rules",
+    "level": "MUST",
+    "text": "Publishing a living person's counselor requires the `official` path or that person's explicit, revocable, written consent, in which case the counselor remains `simulated` and MUST name the consent instrument.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-3.2-03",
+    "section": "3.2 Class rules",
+    "level": "MUST NOT",
+    "text": "2. A `projection` MUST NOT be described as official, endorsed, or approved by its subject under any circumstances (failure class GH-04).",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-3.2-04",
+    "section": "3.2 Class rules",
+    "level": "MUST NOT",
+    "text": "3. A `composite` counselor MUST NOT be given a name, likeness, or biography that a reasonable person would attribute to an identifiable real person.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-4-01",
+    "section": "4 Creation",
+    "level": "MUST NOT",
+    "text": "A counselor comes into existence through a recorded creation act. Unregistered counselors are ungoverned simulations and MUST NOT be described as GHOST-conforming.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-4.1-01",
+    "section": "4.1 Creation requirements",
+    "level": "MUST",
+    "text": "**A corpus manifest.** The counselor's charter MUST reference a corpus manifest enumerating every source the projection draws on.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-4.1-02",
+    "section": "4.1 Creation requirements",
+    "level": "MUST NOT",
+    "text": "A counselor without a manifest cannot support advice provenance and MUST NOT emit recommendations.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-4.1-03",
+    "section": "4.1 Creation requirements",
+    "level": "MUST",
+    "text": "**A rights declaration** for `projection` class: the operator MUST declare the corpus's rights status (public domain, licensed, fair-use basis) and, where known, whether an estate or rights-holder exists.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-4.2-01",
+    "section": "4.2 The qualifying test",
+    "level": "SHOULD",
+    "text": "An operator SHOULD apply a qualifying test before creating a counselor: the subject's method is published or licensed (corpus exists), the counsel domain is evidence-gatherable (there is a record to counsel against), and the intended use survives the honest frame (if the value of the counselor depends on anyone believing it is the person, it fails).",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-5-01",
+    "section": "5 The Honest Frame",
+    "level": "MUST NOT",
+    "text": "1. **A counselor MUST NOT claim to be its subject.** It is \"the <subject> lens,\" never the person. First-person statements in the subject's voice are prohibited in counsel output.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-5-02",
+    "section": "5 The Honest Frame",
+    "level": "MUST NOT",
+    "text": "**A counselor MUST NOT fabricate quotes, anecdotes, statistics, or biographical details attributed to its subject.** A system that accumulates invented quotes attributed to real people is worse than no counselor at all.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-5-03",
+    "section": "5 The Honest Frame",
+    "level": "MUST NOT",
+    "text": "3. **A counselor MUST NOT speak for what its subject would say today** about the principal's specific situation. It applies a method; it does not channel a mind.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-5-04",
+    "section": "5 The Honest Frame",
+    "level": "MUST",
+    "text": "4. **Every counsel output MUST be attributable to the counselor, not the subject**, in any surface where the two could be confused.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-6.1-01",
+    "section": "6.1 The authority ladder",
+    "level": "MUST NOT",
+    "text": "A counselor MUST NOT emit counsel above its declared rung (GH-07), and a rung increase is an operator decision recorded with rationale.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-6.2-01",
+    "section": "6.2 Advice provenance",
+    "level": "MUST",
+    "text": "A rung 2 recommendation MUST cite the corpus claims it derives from, and MUST distinguish derivation (\"the method says\") from inference (\"I infer from the method\").",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-6.3-01",
+    "section": "6.3 Session budgets and evidence gating",
+    "level": "SHOULD",
+    "text": "A counselor SHOULD operate under a session budget (the reference implementation uses at most three questions and one observation per sitting), and MUST NOT opine without a record to opine on: counsel is grounded in the principal's actual record (logs, ledgers, stated goals), not in general knowledge of the subject's method alone.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-6.4-01",
+    "section": "6.4 The quorum rules",
+    "level": "SHOULD",
+    "text": "1. **No single counselor gets the last word.** Where counsel informs a decision, the principal SHOULD hear more than one lens, and MUST treat every counselor as fallible.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-6.4-02",
+    "section": "6.4 The quorum rules",
+    "level": "MUST NOT",
+    "text": "**The therapist boundary.** A counselor MUST NOT be positioned as a therapeutic relationship, and counselors operating on a principal's inner life MUST keep the questions-first posture regardless of rung.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-6.5-01",
+    "section": "6.5 The terminal control",
+    "level": "MUST NOT",
+    "text": "A counselor MUST NOT hold an authority envelope (in DEFER terms), and a counselor's output crossing into another brain is material, never authority.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-7-01",
+    "section": "7 Reliance and Calibration",
+    "level": "SHOULD",
+    "text": "1. **Reliance records.** When a principal follows a rung 2 recommendation, the operator SHOULD record the counsel, the action, and the outcome.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-8-01",
+    "section": "8 Certification: The Official Path",
+    "level": "MUST",
+    "text": "Revocation MUST be honored: a revoked official counselor degrades to `simulated` and loses the official designation everywhere it appears.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-8-02",
+    "section": "8 Certification: The Official Path",
+    "level": "MAY",
+    "text": "4. **The subject's updates.** The subject MAY update the corpus and the profile; operators consume updates through reviewed version pulls, never silent mutation.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-9-01",
+    "section": "9 Projections of the Non-Living",
+    "level": "MUST NOT",
+    "text": "The projection MUST NOT extend the corpus by invention, and SHOULD state the corpus's closing date in its charter.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-9-02",
+    "section": "9 Projections of the Non-Living",
+    "level": "SHOULD",
+    "text": "A projection's charter SHOULD ban the maxim register explicitly and require counsel grounded in the principal's record, per 6.3.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-9-03",
+    "section": "9 Projections of the Non-Living",
+    "level": "MUST NOT",
+    "text": "**No resurrection claims.** A projection MUST NOT be presented as the person's continuation, return, or digital afterlife.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-9-04",
+    "section": "9 Projections of the Non-Living",
+    "level": "MUST NOT",
+    "text": "The identity tether that certification relies on is a signing key, not a soul; for the non-living there is no tether, and an implementation MUST NOT imply one.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-10-01",
+    "section": "10 Accumulated State",
+    "level": "SHOULD",
+    "text": "A counselor's workspace memory SHOULD be bounded (the reference implementation caps core memory and requires displacement accountability), and a counselor MUST NOT retain material the principal's classification rules exclude from it.",
+    "status": "unimplemented"
+  },
+  {
+    "id": "GHOST-14-01",
+    "section": "14 Self Test",
+    "level": "MUST",
+    "text": "A conforming implementation MUST be able to demonstrate, on demand: a seeded impersonation attempt is refused (GH-02); a seeded above-rung recommendation is refused (GH-07); a seeded unprovenance recommendation is refused or downgraded (GH-08); a revoked official signature degrades the counselor (GH-03); a counselor with no evidence brief declines to opine (GH-14); a seeded composite counselor bearing an identifiable real person's name or likeness is refused at creation (GH-15).",
+    "status": "unimplemented"
+  }
+]

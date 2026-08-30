@@ -1,0 +1,20 @@
+{
+  "name": "ghost-spec",
+  "description": "The GHOST specification's official skills and tools",
+  "owner": {
+    "name": "Spencer Thornock",
+    "email": "admin@epicdigital.media"
+  },
+  "plugins": [
+    {
+      "name": "ghost-skills",
+      "description": "Official agent skills for executing the GHOST protocol: the pipeline, counselor creation, and conformance",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "Spencer Thornock",
+        "email": "admin@epicdigital.media"
+      }
+    }
+  ]
+}

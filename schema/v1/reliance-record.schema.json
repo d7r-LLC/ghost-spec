@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ghost-spec.dev/schema/v1/reliance-record.schema.json",
+  "title": "GHOST reliance record",
+  "description": "Draft schema interpreting GHOST v1.0 section 7.1: when a principal follows a rung 2 recommendation, the operator SHOULD record the counsel, the action, and the outcome. The substrate of calibration.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ghostVersion", "date", "counselorRef", "counsel", "action"],
+  "properties": {
+    "ghostVersion": { "const": "1.0" },
+    "date": { "type": "string", "format": "date" },
+    "counselorRef": { "type": "string" },
+    "counsel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["grade", "text"],
+      "properties": {
+        "grade": { "enum": ["question", "observation", "recommendation"], "description": "The three counsel grades (2). A recommendation is permitted only at rung 2 with provenance (6.1, 6.2)." },
+        "text": { "type": "string" },
+        "provenance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind", "citation"],
+            "properties": {
+              "kind": { "enum": ["derivation", "inference"], "description": "6.2: distinguish \"the method says\" from \"I infer from the method\"." },
+              "citation": { "type": "string", "description": "The corpus claim, cited into the manifest." }
+            }
+          },
+          "description": "Required in practice for grade recommendation (GH-08); the schema states the shape, the implementation enforces the rung rule."
+        }
+      }
+    },
+    "action": { "type": "string", "description": "What the principal actually did. Every action on counsel is a human decision (6.5)." },
+    "outcome": { "type": "string", "description": "What happened; may be recorded later than the action." },
+    "outcomeDate": { "type": "string", "format": "date" }
+  }
+}

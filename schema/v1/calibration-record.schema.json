@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ghost-spec.dev/schema/v1/calibration-record.schema.json",
+  "title": "GHOST calibration record",
+  "description": "Draft schema interpreting GHOST v1.0 section 7.2 and 7.3: the counselor's error history, its most valuable accumulated state and the basis for rung movement in both directions. It survives across sessions and versions; resetting it silently is GH-11.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ghostVersion", "counselorRef", "entries"],
+  "properties": {
+    "ghostVersion": { "const": "1.0" },
+    "counselorRef": { "type": "string" },
+    "reviewIntervalDays": { "type": "integer", "minimum": 1, "description": "Health invariant 13 reports calibration records older than their review interval." },
+    "lastReview": { "type": "string", "format": "date" },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["date", "counsel", "assessment"],
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "counsel": { "type": "string", "description": "What the counselor said, or a reliance-record reference." },
+          "relianceRef": { "type": "string" },
+          "assessment": { "enum": ["right", "wrong", "partially-right", "unknown"], "description": "What it has been wrong about; unknown carries a note rather than an inferred verdict." },
+          "magnitude": { "type": "string", "description": "By how much, in the operator's terms." },
+          "note": { "type": "string" }
+        }
+      }
+    }
+  }
+}

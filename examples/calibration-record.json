@@ -1,0 +1,16 @@
+{
+  "ghostVersion": "1.0",
+  "counselorRef": "examples/charter.composite.json",
+  "reviewIntervalDays": 90,
+  "lastReview": "2026-08-30",
+  "entries": [
+    {
+      "date": "2026-09-15",
+      "counsel": "Reorder before the fourteen-day floor is crossed.",
+      "relianceRef": "examples/reliance-record.json",
+      "assessment": "partially-right",
+      "magnitude": "one crate of overstock",
+      "note": "The floor held; the quantity heuristic ran high."
+    }
+  ]
+}

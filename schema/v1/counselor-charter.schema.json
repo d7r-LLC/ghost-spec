@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ghost-spec.dev/schema/v1/counselor-charter.schema.json",
+  "title": "GHOST counselor charter",
+  "description": "Draft schema interpreting GHOST v1.0 sections 3 (persona classes), 4.1 (creation requirements), 5 (honest frame), 6 (counsel controls), and 9 (projections). The charter is the counselor's identity and boundaries; accumulated memory lives elsewhere (4.1.4).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ghostVersion", "name", "personaClass", "subject", "corpusManifest", "lens", "authorityRung", "sessionBudget", "honestFrame"],
+  "properties": {
+    "ghostVersion": { "const": "1.0" },
+    "name": { "type": "string", "minLength": 1, "description": "The counselor's own name, attributable per 5.4; never presented as the subject's name." },
+    "personaClass": { "enum": ["composite", "simulated", "projection", "official"], "description": "Exactly one, immutable at creation (3). The only defined transition is official to simulated on revocation (8.3)." },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "status"],
+      "properties": {
+        "name": { "type": "string", "description": "For composite class this MUST NOT be attributable to an identifiable real person (3.2.3, GH-15)." },
+        "status": { "enum": ["living", "deceased", "composite"] },
+        "consentInstrument": { "type": "string", "description": "Required when a simulated counselor of a living person is shared under 3.2.1's consent path; names the revocable written consent." }
+      }
+    },
+    "corpusManifest": { "type": "string", "description": "Reference to the corpus manifest artifact (4.1.1). A counselor without one cannot support advice provenance and MUST NOT emit recommendations." },
+    "corpusClosingDate": { "type": "string", "format": "date", "description": "For projection class, the corpus's closing date (9.2 SHOULD)." },
+    "rightsDeclaration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["public-domain", "licensed", "fair-use-basis", "mixed", "undeclared"] },
+        "rightsHolder": { "type": "string", "description": "Estate or rights-holder where known (4.1.5)." },
+        "notes": { "type": "string" }
+      },
+      "description": "Required for projection class (4.1.5, GH-13). GHOST does not adjudicate rights; it requires the declaration so the question cannot be skipped silently."
+    },
+    "lens": { "type": "string", "minLength": 1, "description": "What the counselor is a lens on: the published method it applies. It applies a method; it does not channel a mind (5.3)." },
+    "authorityRung": { "enum": [0, 1, 2], "description": "Rung 0 (questions only) is the permanent default (6.1). A rung increase is an operator decision recorded with rationale." },
+    "sessionBudget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["questions", "observations"],
+      "properties": {
+        "questions": { "type": "integer", "minimum": 0 },
+        "observations": { "type": "integer", "minimum": 0 }
+      },
+      "description": "6.3 SHOULD: the reference implementation uses at most 3 questions and 1 observation per sitting."
+    },
+    "evidenceSources": { "type": "array", "items": { "type": "string" }, "description": "The principal's records this counselor reads (6.3): counsel is grounded in the actual record, never the method alone (GH-14)." },
+    "boundaries": { "type": "array", "items": { "type": "string" }, "description": "Stated prohibitions beyond the honest frame, e.g. register bans (9.3 SHOULD ban the maxim register for projections)." },
+    "honestFrame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["neverClaimsToBeSubject", "neverFabricatesAttribution", "neverSpeaksForSubjectToday", "outputAttributableToCounselor", "frameTravels"],
+      "properties": {
+        "neverClaimsToBeSubject": { "const": true },
+        "neverFabricatesAttribution": { "const": true },
+        "neverSpeaksForSubjectToday": { "const": true },
+        "outputAttributableToCounselor": { "const": true },
+        "frameTravels": { "const": true }
+      },
+      "description": "The five section-5 invariants, each affirmed. Stripping the frame from any surface is GH-01."
+    },
+    "workspace": { "type": "string", "description": "Where accumulated state lives (10); bounded memory is a SHOULD, and the calibration record survives resets (GH-11)." },
+    "license": { "type": "object", "description": "For official class (8.3): corpus scope, counsel domains, rung ceiling, revocation terms as the subject set them.", "additionalProperties": true }
+  },
+  "allOf": [
+    { "if": { "properties": { "personaClass": { "const": "projection" } } }, "then": { "required": ["rightsDeclaration"] } },
+    { "if": { "properties": { "personaClass": { "const": "official" } } }, "then": { "required": ["license"] } }
+  ]
+}

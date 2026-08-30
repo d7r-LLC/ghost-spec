@@ -1,0 +1,17 @@
+{
+  "ghostVersion": "1.0",
+  "name": "Broken example",
+  "personaClass": "projection",
+  "subject": { "name": "Example", "status": "deceased" },
+  "corpusManifest": "examples/corpus-manifest.json",
+  "lens": "A projection missing its rights declaration, which GH-13 forbids.",
+  "authorityRung": 3,
+  "sessionBudget": { "questions": 3, "observations": 1 },
+  "honestFrame": {
+    "neverClaimsToBeSubject": true,
+    "neverFabricatesAttribution": true,
+    "neverSpeaksForSubjectToday": true,
+    "outputAttributableToCounselor": true,
+    "frameTravels": false
+  }
+}

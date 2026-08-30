@@ -1,0 +1,6 @@
+{
+  "name": "ghost-skills",
+  "description": "Official agent skills for executing the GHOST protocol: the pipeline, counselor creation, and conformance",
+  "version": "0.1.0",
+  "contextFileName": "GEMINI.md"
+}
