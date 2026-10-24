@@ -76,10 +76,14 @@ Structure of all three is enforced by `tools/check-record.mjs` in the gate.
 
 ## What needs a human
 
-Committing and pushing (push to `main` deploys ghost-spec.dev: **push is
-publication**); changing the spec's Status, version, or tiers; making any
-conformance claim on behalf of the spec or an implementation; adding a dependency;
-tagging a release; anything that collects data about a person.
+Changing the spec's Status, version, or tiers; making any conformance claim on
+behalf of the spec or an implementation; tagging a release; anything that collects
+data about a person.
+
+Agent work without asking (Spencer, 2026-10-24): commits and pushes on a worktree
+branch, pull requests merged once `scripts/ci.sh` passes, and exactly pinned
+dependencies added with a recorded reason. Never push directly to `main`: a push to
+`main` deploys ghost-spec.dev, so **merge is publication**.
 
 ## Directory contract
 
@@ -102,8 +106,8 @@ any directory's README, the answer is a design doc, not a new directory.
 
 ## Conventions
 
-- Node ESM, no build step, no framework. Dependencies are pinned exactly and adding
-  one needs a human. Prefer the standard library.
+- Node ESM, no build step, no framework. Dependencies are pinned exactly; record why
+  each one is added. Prefer the standard library.
 - Shell scripts: `#!/usr/bin/env bash`, `set -euo pipefail`, shellcheck-clean.
 - Conventional commits, `type(scope): description`, no em dashes in messages.
 - JSON data files: 2-space indent, LF, trailing newline, no comments.
@@ -113,13 +117,17 @@ any directory's README, the answer is a design doc, not a new directory.
 <!-- d7r:git-workflow:start -->
 ## Git workflow (d7r, binding; synced from the planning repo, do not edit here)
 
-- The main checkout of this repository is a read-only mirror of `origin`'s default branch. Never edit files, commit, switch branches or run builds that write tracked files here. Older instructions in this repository that edit or push `main` directly are superseded.
-- Do all work in a worktree: `~/code/d7r/scripts/d7r-worktree new <repo> <type>/<slug>` creates `<repo>/.worktrees/<slug>` from a fresh `origin/<default>`. Types: feat, fix, docs, chore, refactor, test, ci, rescue. Never use `/tmp`, `~/Documents`, `~/.codex/worktrees` or `.claude/worktrees`.
+- Resolve the actual canonical path and Git worktree before writing. The canonical checkout must stay on `main` as an update-only mirror of current `origin/main`, even if older guidance names a feature branch or `origin/HEAD`. Never edit files, commit, switch branches, install dependencies or run writing builds there.
+- Do all work in a worktree: `~/code/d7r/scripts/d7r-worktree new <repo> <type>/<slug>` creates `<repo>/.worktrees/<slug>` from freshly verified `origin/main`. Types: feat, fix, docs, chore, refactor, test, ci, rescue. Never use `/tmp`, `~/Documents`, `~/.codex/worktrees` or `.claude/worktrees`.
+- Preflight branch, HEAD, origin URL, main/upstream relation, tracked/untracked files, worktrees, locks, task owners and runtime dependencies. Cached refs do not prove "latest". Any agent may fast-forward a clean, unowned canonical main (`git merge --ff-only origin/main`) after live origin/main verification; no owner review is needed. Stop canonical updates on dirt, divergence, wrong branch, missing main, active owner/runtime or uncertain ownership; preserve an exact handoff. Never auto-merge, reset, clean, auto-stash, force-update or move another session's worktree to normalize it.
+- Repository policy overrides skills or old examples that edit the starting checkout, branch from its HEAD or use another worktree location. A non-main canonical checkout requires an explicitly scoped preservation and restoration handoff, not an automatic checkout.
 - Push every commit: `git push -u origin <branch>` the first time, `git push` after, then confirm the remote ref equals `HEAD`. A local commit is not a backup.
-- Open a draft pull request on the first push, stating purpose, scope and the plan or spec link.
+- Open a draft pull request on the first push, stating purpose, scope and the plan or spec link. Do not prefix titles with "WIP"; Forgejo refuses to merge them. Pass `fj` the d7r Forgejo host with `-H` and use the qualified `d7r/<repo>#<n>` form.
+- Merge and release authority (Spencer, 2026-10-24): merge your own pull request once its required checks pass, and change staging, without asking; merge `origin/main` in first when the branch is behind. Production releases run only through CI under planning decision 0077: a release that applies a database migration waits for Spencer's explicit approval, and until this repository passes its staging rollback drill its production releases keep its earlier rule. Older text in this repository that asks for approval of a merge, a staging change or a non-migration release is superseded.
 - Hooks run through the d7r dispatcher: main-checkout guard, Gitleaks, then this repository's own hooks. Never skip them, force-push or rewrite pushed history.
 - Verify the provider identity before pushing: `d7radmin` on Forgejo, the d7r-LLC identity on GitHub.
-- Ignored local files (`.env*`, caches, builds) are disposable; secrets live in 1Password.
-- A weekly sweep removes worktrees that are clean, pushed, unlocked and idle for 48 hours. Protect one with `git worktree lock <path>`.
+- Preserve existing ignored runtime state and unknown files during an audit or handoff; an ignored path is not permission to delete it. Secrets live in 1Password.
+- After merging a pull request, remove its worktree: `~/code/d7r/scripts/d7r-worktree finish <path>`, run from outside the worktree. It removes the worktree and its local branch only when the branch is merged into `origin/main`, the tree is clean and no process is working inside it. An hourly job removes any merged worktree left behind.
+- The sweep reports canonical checkouts that are behind; it does not advance them. Any agent may apply that fast-forward under the rule above. Its separate cleanup mode removes worktrees that are clean, pushed, unlocked and not in use, once they are merged or idle for 48 hours. Protect one with `git worktree lock <path>`.
 - Full policy: `docs/development-workflow.md`, section "Worktree lifecycle", in the d7r planning repository (decision 0075).
 <!-- d7r:git-workflow:end -->
